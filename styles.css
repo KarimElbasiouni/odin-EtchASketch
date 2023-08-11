@@ -1,0 +1,32 @@
+body{
+    background-color: thistle;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+#gridContainer{
+
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    margin: auto;
+}
+#subContainer{
+    display:flex;
+    flex: 1 1 auto;
+}
+#subContainer > div{
+    flex:1 1 auto;
+}
+.header{
+    font-size: 48px;
+    text-align: center;
+    padding: 32px;
+} 
+.footer{
+    font-size: 12px;
+    padding: 72px 0px 12px 0px;
+    text-align:center;
+}
