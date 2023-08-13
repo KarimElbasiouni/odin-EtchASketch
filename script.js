@@ -26,12 +26,22 @@ function sketch(){
         isMouseDown = false;
     })
     container.addEventListener("mouseover", (e) => {
+        pickColor();
         if (isMouseDown){
-            e.target.style.backgroundColor = 'black';   
+            e.target.style.backgroundColor = color;   
         }
     })
 
 }
 
+let color = '#000000'
+function pickColor(){
+    const colorPicker = document.querySelector('input[type = color]');
+    color = colorPicker.value;
+
+
+}
+
 createGrid(16);
 sketch();
+pickColor();
