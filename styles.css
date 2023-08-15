@@ -19,6 +19,9 @@ body{
     justify-content: center;
 }
 
+.settings{
+    gap: 30px;
+}
 input[type = "color"]{
     -webkit-appearance: none;
     -moz-appearance: none;

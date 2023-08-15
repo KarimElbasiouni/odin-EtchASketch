@@ -17,6 +17,7 @@ function createGrid(n = 16){
     }
     container.backgroundColor = "white";
 }
+createGrid(16);
 
 let color = '#000000';
 function pickColor(){
@@ -69,4 +70,13 @@ function clearGrid(){
 
 }
 
-createGrid(16);
+function reset(){
+    clearGrid();
+    createGrid(numDimension);
+}
+
+const resetButton = document.querySelector('button#reset');
+resetButton.addEventListener('click', (e)=>{
+    reset()
+    console.log(e);
+})
