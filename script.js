@@ -1,6 +1,7 @@
 
 const container = document.querySelector('#gridContainer');
 let numDimension = 0;
+
 // 'createGrid' creates an n x n grid of empty divs
 function createGrid(n = 16){ 
     numDimension = n;
@@ -19,11 +20,13 @@ function createGrid(n = 16){
 }
 createGrid(16);
 
+
 let color = '#000000';
 function pickColor(){
     const colorPicker = document.querySelector('input[type = color]');
     color = colorPicker.value;
 }
+
 
 let isMouseDown = false; 
 function sketch(){
@@ -36,17 +39,27 @@ function sketch(){
     container.addEventListener("mouseover", (e) => {
         pickColor();
         if (isMouseDown){
-            e.target.style.backgroundColor = color;   
+            if (isRandom){
+                let randomR = Math.floor(Math.random()*255 + 1);
+                let randomG = Math.floor(Math.random()*255 + 1);
+                let randomB = Math.floor(Math.random()*255 + 1);
+                e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+            } else if (isEraser) {
+                e.target.style.backgroundColor = 'white';  
+            } else{
+                e.target.style.backgroundColor = color;
+            }
         }
     })
 }
+sketch();
 
 const gridSizeSlider = document.querySelector('input[type = range]');
 let gridSizeValue = 16;
 function adjustGridSize(){
     const gridSizeSlider = document.querySelector('input[type = range]');
     gridSizeValue = gridSizeSlider.value;
-    return gridSizeValue
+    return gridSizeValue;
     
 }
 
@@ -57,7 +70,7 @@ gridSizeSlider.addEventListener('change', (e)=>{
     clearGrid();
     createGrid(dimension);
 })
-sketch();
+
 function clearGrid(){
     let subContainers = document.querySelectorAll('div#subContainer');
     subContainers.forEach((subContainer) => {
@@ -80,3 +93,30 @@ resetButton.addEventListener('click', (e)=>{
     reset()
     console.log(e);
 })
+
+let isRandom = false;
+let isPen = true;
+let isEraser = false;
+const randomButton = document.querySelector('button#random');
+randomButton.addEventListener('click', ()=>{
+    isPen = false;
+    isEraser = false;
+    isRandom = true;
+    randomButton.setAttribute('class', 'clicked');
+});
+
+const penButton = document.querySelector('button#pen');
+penButton.addEventListener('click', ()=>{
+    isRandom =false; 
+    isEraser = false;
+    isPen = true;
+    penButton.setAttribute('class', 'clicked');
+});
+
+const eraserButton = document.querySelector('button#eraser');
+eraserButton.addEventListener('click', ()=>{
+    isRandom =false; 
+    isEraser = true;
+    isPen = false;
+    eraserButton.setAttribute('class', 'clicked');
+});
