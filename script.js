@@ -63,6 +63,10 @@ function adjustGridSize(){
     
 }
 
+gridSizeSlider.addEventListener('input', ()=>{
+    let dimension = adjustGridSize();
+    document.querySelector('label#adjustSize').textContent = dimension + ' x ' + dimension;
+})
 gridSizeSlider.addEventListener('change', (e)=>{
     console.log(e);
     let dimension = adjustGridSize();
