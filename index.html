@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EtchASketch</title>
     <link rel ="stylesheet" href = 'styles.css'></link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -12,18 +15,18 @@
     <div id = 'main'>
         <div class = "settings">
             <input type = 'color' value = "#000000">
-            <button id = "pen">Pen</button>
+            <button id = "pen" class ='clicked'>Pen</button>
             <button id = "random">Random</button>
             <button id = "eraser">Eraser</button>
             <button id = "reset">Reset</button>
         </div>
         <div id = "gridContainer"></div>
         <div class = "sliderContainer">
-            <input id="adjustSize" type = "range" min = "16" max = "64" value = "16" step = "1">
+            <input id="adjustSize" type = "range" min = "16" max = "100" value = "16" step = "1">
             <label for = "adjustSize" id ="adjustSize">16 x 16</label>
         </div>
     </div>
-    <div class = "footer">Copyright <span>&copy;</span>  KarimElbasiouni@github.io</div>
+    <div class = "footer">Copyright <span>&copy;</span> 2023 KarimElbasiouni</div>
 
 </body>
 </html>

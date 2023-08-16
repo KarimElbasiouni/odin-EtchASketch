@@ -106,7 +106,9 @@ randomButton.addEventListener('click', ()=>{
     isPen = false;
     isEraser = false;
     isRandom = true;
-    randomButton.setAttribute('class', 'clicked');
+    randomButton.classList.add('clicked');
+    penButton.classList.remove('clicked');
+    eraserButton.classList.remove("clicked");
 });
 
 const penButton = document.querySelector('button#pen');
@@ -114,13 +116,18 @@ penButton.addEventListener('click', ()=>{
     isRandom =false; 
     isEraser = false;
     isPen = true;
-    penButton.setAttribute('class', 'clicked');
+    penButton.classList.add('clicked');
+    eraserButton.classList.remove("clicked");
+    randomButton.classList.remove("clicked");
 });
 
 const eraserButton = document.querySelector('button#eraser');
-eraserButton.addEventListener('click', ()=>{
+eraserButton.addEventListener('click', (e)=>{
+    console.log(e.target);
     isRandom =false; 
     isEraser = true;
     isPen = false;
-    eraserButton.setAttribute('class', 'clicked');
+    eraserButton.classList.add("clicked");
+    randomButton.classList.remove("clicked");
+    penButton.classList.remove("clicked");
 });
