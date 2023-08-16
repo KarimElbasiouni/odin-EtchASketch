@@ -33,7 +33,7 @@ function sketch(){
     container.addEventListener('mousedown', ()=> {
         isMouseDown = true;
     }) 
-    container.addEventListener('mouseup', () =>{
+    document.body.addEventListener('mouseup', () =>{
         isMouseDown = false;
     })
     container.addEventListener("mouseover", (e) => {
